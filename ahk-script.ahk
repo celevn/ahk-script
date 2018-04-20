@@ -3,7 +3,7 @@
 
 
 ; -------------------------------------------- ;
-; ------Part I : Virtual Desktop Switch------- ;
+;   Part I: Virtual Desktop Switch             ;
 ; -------------------------------------------- ;
 
 n = 0
@@ -24,22 +24,41 @@ svd()
 
 
 ; --------------------------------------------- ;
-; ----Part II : Markdown Keyboard Remapping---- ;
+;   Part II: Horizontal Scroll with Shift       ;
 ; --------------------------------------------- ;
 
-NumpadDot:: Send {ASC 46}    ;"."
-;!1:: Send {ASC 33}    ;"!"
-!':: Send {ASC 34}    ;"""
-;!4:: Send {ASC 36}    ;"$"
-!9:: Send {ASC 40}    ;"("
-!0:: Send {ASC 41}    ;")"
-!;:: Send {ASC 59}    ;":"
-!,:: Send {ASC 60}    ;"<"
-!.:: Send {ASC 62}    ;">"
-!/:: Send {ASC 63}    ;"?"
-![:: Send {ASC 91}    ;"["
-!\:: Send {ASC 92}    ;"\"
-!]:: Send {ASC 93}    ;"]"
-!6:: Send {ASC 94}    ;"^"
-!-:: Send {ASC 95}    ;"_"
-!`:: Send {Asc 96}    ;"`"
++WheelDown::WheelRight
++WheelUp::WheelLeft
+;~Shift & WheelUp::  ; Scroll left
+;  ControlGetFocus, fcontrol, A
+;  Loop 2  ; <-- Increase this value to scroll faster.
+;    SendMessage, 0x114, 0, 0, %fcontrol%, A  ; 0x114=WM_HSCROLL; 0=SB_LINELEFT
+;return
+;
+;~Shift & WheelDown::  ; Scroll right
+;  ControlGetFocus, fcontrol, A
+;  Loop 2  ; <-- Increase this value to scroll faster.
+;    SendMessage, 0x114, 1, 0, %fcontrol%, A  ; 0x114=WM_HSCROLL; 1=SB_LINERIGHT
+;return
+
+
+; --------------------------------------------- ;
+;   Part III: Markdown Keyboard Remapping       ;
+; --------------------------------------------- ;
+
+!`:: Send {Asc 096}    ;"`"
+;!1:: Send {ASC 033}    ;"!"
+;!4:: Send {ASC 036}    ;"$"
+!6:: Send {ASC 094}    ;"^"
+!9:: Send {ASC 040}    ;"("
+!0:: Send {ASC 041}    ;")"
+!-:: Send {ASC 095}    ;"_"
+![:: Send {ASC 091}    ;"["
+!]:: Send {ASC 093}    ;"]"
+!\:: Send {ASC 092}    ;"\"
+!;:: Send {ASC 059}    ;":"
+!':: Send {ASC 034}    ;"""
+!,:: Send {ASC 060}    ;"<"
+!.:: Send {ASC 062}    ;">"
+!/:: Send {ASC 063}    ;"?"
+NumpadDot:: Send {ASC 046}    ;"."
