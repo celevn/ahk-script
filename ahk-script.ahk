@@ -27,8 +27,8 @@ svd()
 ;   Part II: Horizontal Scroll with Shift       ;
 ; --------------------------------------------- ;
 
-+WheelDown::WheelRight
-+WheelUp::WheelLeft
+;+WheelDown::WheelRight
+;+WheelUp::WheelLeft
 ;~Shift & WheelUp::  ; Scroll left
 ;  ControlGetFocus, fcontrol, A
 ;  Loop 2  ; <-- Increase this value to scroll faster.
@@ -56,7 +56,7 @@ svd()
 ![:: Send {ASC 091}    ;"["
 !]:: Send {ASC 093}    ;"]"
 !\:: Send {ASC 092}    ;"\"
-!;:: Send {ASC 059}    ;":"
+!;:: Send {ASC 058}    ;":"
 !':: Send {ASC 034}    ;"""
 !,:: Send {ASC 060}    ;"<"
 !.:: Send {ASC 062}    ;">"
